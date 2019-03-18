@@ -1,17 +1,32 @@
 <template>
   <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+    <h1>{{'基于Vue的组合键盘事件监听组件'}}</h1>
+    <p>测试：Ctrl+Enter触发事件</p>
+    <ul>
+      <li v-for="(item,index) in list" :key="index">{{item}}</li>
+    </ul>
+    <!-- keyCodes为组合按键的keyCode数组，submit为键盘事件执行的函数 -->
+    <Listener :keyCodes="codes" @submit="fn"/>
   </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
-
+import Listener from './components/Listener.vue'
 export default {
   name: 'app',
   components: {
-    HelloWorld
+    Listener,
+  },
+  data() {
+    return {
+      codes:[17,13],      // 传入按键的 keyCodde
+      list:[]
+    }
+  },
+  methods:{
+    fn(){
+      this.list.push('aaaaaaaaaaa  ')
+    },
   }
 }
 </script>
