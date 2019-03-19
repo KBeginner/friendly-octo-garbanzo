@@ -6,7 +6,7 @@
       <li v-for="(item,index) in list" :key="index">{{item}}</li>
     </ul>
     <!-- keyCodes为组合按键的keyCode数组，submit为键盘事件执行的函数 -->
-    <Listener :keyCodes="codes" @submit="fn"/>
+    <Listener :keyCodes="codes" @action="fn"/>
   </div>
 </template>
 

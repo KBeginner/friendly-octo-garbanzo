@@ -1,5 +1,5 @@
 <template>
-  <div id="Listener">
+  <div id="Key_Listener">
     {{`基于Vue的组合键盘监听事件 封装组件`}}
   </div>
 </template>
@@ -71,8 +71,8 @@ export default {
       const isAllKey = keyArr.every(element=>{
         return element == true
       })
-      if(isAllKey){
-        this.$emit('submit')    // 调用父级函数
+      if(isAllKey){       // 同时按下
+        this.$emit('action')    // 调用父级函数
       }
     }
   },
@@ -88,7 +88,7 @@ export default {
 </script>
 
 <style scoped>
-#Listener{
+#Key_Listener{
   display: none;
 }
 </style>
