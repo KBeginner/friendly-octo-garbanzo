@@ -49,17 +49,13 @@ export default {
     // 按键按下执行
     keyDown(e){
       this.keyCodes.forEach((element,index) => {
-        if(e.keyCode == element){
-          Vue.set(this.keys,'key'+index, true)
-        }
+        e.keyCode == element ? Vue.set(this.keys,'key'+index, true) : ''
       });
     },
     // 按键弹起执行
     keyUp(e){
       this.keyCodes.forEach((element,index) => {
-        if(e.keyCode == element){
-          Vue.set(this.keys,'key'+index, false)
-        }
+        e.keyCode == element ? Vue.set(this.keys,'key'+index, false) : ''
       });
     },
     // 组合按键触发函数
@@ -68,12 +64,8 @@ export default {
       for(let val in this.keys){
         keyArr.push(this.keys[val])
       }
-      const isAllKey = keyArr.every(element=>{
-        return element == true
-      })
-      if(isAllKey){       // 同时按下
-        this.$emit('action')    // 调用父级函数
-      }
+      const isAllKey = keyArr.every(element=>element == true)
+      isAllKey ? this.$emit('action') : ''
     }
   },
   watch: {
